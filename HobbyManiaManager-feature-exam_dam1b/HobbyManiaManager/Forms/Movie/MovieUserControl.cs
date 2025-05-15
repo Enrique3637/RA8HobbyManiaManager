@@ -10,6 +10,7 @@ namespace HobbyManiaManager
 {
     public partial class MovieUserControl : UserControl
     {
+        //Aqui estan las clases que necesitamos para realizar los cambios
         private CultureInfo cultureInfo;
         private Movie Movie;
         private RentalService _service;
@@ -18,6 +19,7 @@ namespace HobbyManiaManager
 
         public MovieUserControl()
         {
+            //Muy impostante inicializar service y costumerrespository
             InitializeComponent();
             this.cultureInfo = new CultureInfo("es-ES");
             this._service = new RentalService();
@@ -68,6 +70,7 @@ namespace HobbyManiaManager
             }
             else
             {
+                //Creamos variables para hacer el codigo mejor
                 var rental = _service.GetMovieRental(movie.Id);
                 var customer = _customersRepository.GetById(rental.CustomerId);
                 this.buttonStartEndRent.Text = "End Rent";
