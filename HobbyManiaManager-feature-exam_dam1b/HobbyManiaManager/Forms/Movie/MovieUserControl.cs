@@ -11,14 +11,17 @@ namespace HobbyManiaManager
     public partial class MovieUserControl : UserControl
     {
         private CultureInfo cultureInfo;
-        private RentalService service;
         private Movie Movie;
+        private RentalService _service;
+        private CustomersRepository _customersRepository;
+        public Action _refreshAction;
 
         public MovieUserControl()
         {
             InitializeComponent();
             this.cultureInfo = new CultureInfo("es-ES");
-            this.service = new RentalService();
+            this._service = new RentalService();
+            this._customersRepository = CustomersRepository.Instance;
         }
 
         public void Load(Movie movie)
@@ -55,7 +58,7 @@ namespace HobbyManiaManager
 
         private void CheckAvailability(Movie movie)
         {
-            bool available = service.IsAvailable(movie);
+            bool available = _service.IsAvailable(movie);
             if (available)
             {
                 this.pictureBoxAvailable.BackColor = Color.Green;
@@ -65,9 +68,11 @@ namespace HobbyManiaManager
             }
             else
             {
+                var rental = _service.GetMovieRental(movie.Id);
+                var customer = _customersRepository.GetById(rental.CustomerId);
                 this.buttonStartEndRent.Text = "End Rent";
                 this.pictureBoxAvailable.BackColor = Color.Red;
-                this.labelAvailable.Text = "Rental not available";
+                this.labelAvailable.Text = $"Not available. Rented by: {customer.Name}({customer.Id})";
             }
         }
 
