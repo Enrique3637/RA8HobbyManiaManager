@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 using HobbyManiaManager.Forms;
+using HobbyManiaManager.IMDb;
 using HobbyManiaManager.Models;
 
 namespace HobbyManiaManager
@@ -96,6 +97,13 @@ namespace HobbyManiaManager
         private void MovieUserControl_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnImdb_Click(object sender, EventArgs e)
+        {
+            string imdb = Movie.imdb_id;
+            var imdbForm = new IMDbForm(Movie);
+            imdbForm.ShowDialog();
         }
     } 
 }
