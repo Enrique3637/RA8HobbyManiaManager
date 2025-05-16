@@ -86,8 +86,8 @@ namespace HobbyManiaManager
         {
             var rentalForm = new RentalForm(Movie, this);
             rentalForm.ShowDialog();
-            _refreshAction?.Invoke();
-            this.Refresh();
+            _refreshAction?.Invoke(); // Si se ha proporcionado una acción de refresco (_refreshAction), la invoca tras cerrar el diálogo
+            this.Refresh();// Fuerza el redibujo/actualización visual de este formulario para reflejar cualquier cambio
         }
 
         private void MovieUserControl_Load(object sender, EventArgs e)

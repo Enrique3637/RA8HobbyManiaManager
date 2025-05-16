@@ -51,7 +51,7 @@ namespace HobbyManiaManager
             }
         }
 
-        private void RefreshMoviesGrid()
+        private void RefreshMoviesGrid() //Añadimos un nuevo metodo para que se actualice todo.
         {
             dataGridViewMoviesList.DataSource = _moviesRepository.GetAll()
                 .Select(m => new MovieDataGridViewModel(m))
