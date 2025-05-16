@@ -38,6 +38,7 @@
             this.buttonStartEndRent = new System.Windows.Forms.Button();
             this.circularProgressBarVotes = new CircularProgressBar.CircularProgressBar();
             this.labelVotesCount = new System.Windows.Forms.Label();
+            this.btnImdb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvailable)).BeginInit();
             this.SuspendLayout();
@@ -163,10 +164,26 @@
             this.labelVotesCount.Text = "Votes Count";
             this.labelVotesCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnImdb
+            // 
+            this.btnImdb.BackColor = System.Drawing.Color.Gold;
+            this.btnImdb.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnImdb.FlatAppearance.BorderSize = 2;
+            this.btnImdb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImdb.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImdb.Location = new System.Drawing.Point(835, 222);
+            this.btnImdb.Name = "btnImdb";
+            this.btnImdb.Size = new System.Drawing.Size(68, 37);
+            this.btnImdb.TabIndex = 11;
+            this.btnImdb.Text = "IMDb";
+            this.btnImdb.UseVisualStyleBackColor = false;
+            this.btnImdb.Click += new System.EventHandler(this.btnImdb_Click);
+            // 
             // MovieUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnImdb);
             this.Controls.Add(this.labelVotesCount);
             this.Controls.Add(this.circularProgressBarVotes);
             this.Controls.Add(this.buttonStartEndRent);
@@ -179,7 +196,6 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "MovieUserControl";
             this.Size = new System.Drawing.Size(907, 307);
-            this.Load += new System.EventHandler(this.MovieUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvailable)).EndInit();
             this.ResumeLayout(false);
@@ -199,5 +215,6 @@
         private System.Windows.Forms.Button buttonStartEndRent;
         private CircularProgressBar.CircularProgressBar circularProgressBarVotes;
         private System.Windows.Forms.Label labelVotesCount;
+        private System.Windows.Forms.Button btnImdb;
     }
 }
