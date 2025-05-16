@@ -25,6 +25,8 @@ namespace HobbyManiaManager
                 .ToList();
 
             ConfigureMoviesDatagrid();
+            RefreshMoviesGrid();
+            movieUserControl._refreshAction = () => RefreshMoviesGrid();
         }
 
         private void ConfigureMoviesDatagrid()
@@ -42,11 +44,18 @@ namespace HobbyManiaManager
             if (dataGridViewMoviesList.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridViewMoviesList.SelectedRows[0];
-                var id = (int) selectedRow.Cells["Id"].Value;
+                var id = (int)selectedRow.Cells["Id"].Value;
 
                 var selected = _moviesRepository.GetById(id);
                 movieUserControl.Load(selected);
             }
+        }
+
+        private void RefreshMoviesGrid() //Añadimos un nuevo metodo para que se actualice todo.
+        {
+            dataGridViewMoviesList.DataSource = _moviesRepository.GetAll()
+                .Select(m => new MovieDataGridViewModel(m))
+                .ToList();
         }
     }
 }

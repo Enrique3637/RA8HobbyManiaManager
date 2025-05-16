@@ -67,7 +67,7 @@
             this.labelOriginalTitle.Location = new System.Drawing.Point(212, 54);
             this.labelOriginalTitle.MaximumSize = new System.Drawing.Size(600, 0);
             this.labelOriginalTitle.Name = "labelOriginalTitle";
-            this.labelOriginalTitle.Size = new System.Drawing.Size(600, 24);
+            this.labelOriginalTitle.Size = new System.Drawing.Size(600, 0);
             this.labelOriginalTitle.TabIndex = 2;
             this.labelOriginalTitle.Text = "Original Title";
             // 
@@ -179,6 +179,7 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "MovieUserControl";
             this.Size = new System.Drawing.Size(907, 307);
+            this.Load += new System.EventHandler(this.MovieUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvailable)).EndInit();
             this.ResumeLayout(false);

@@ -58,6 +58,7 @@ namespace HobbyManiaManager
             this.Refresh();
         }
 
+        
         private void CheckAvailability(Movie movie)
         {
             bool available = _service.IsAvailable(movie);
@@ -66,11 +67,10 @@ namespace HobbyManiaManager
                 this.pictureBoxAvailable.BackColor = Color.Green;
                 this.labelAvailable.Text = "Ready to rent";
                 this.buttonStartEndRent.Text = "Start Rent";
-
             }
             else
             {
-                //Creamos variables para hacer el codigo mejor
+
                 var rental = _service.GetMovieRental(movie.Id);
                 var customer = _customersRepository.GetById(rental.CustomerId);
                 this.buttonStartEndRent.Text = "End Rent";
@@ -89,6 +89,13 @@ namespace HobbyManiaManager
         {
             var rentalForm = new RentalForm(Movie, this);
             rentalForm.ShowDialog();
+            _refreshAction?.Invoke(); // Si se ha proporcionado una acción de refresco (_refreshAction), la invoca tras cerrar el diálogo
+            this.Refresh();// Fuerza el redibujo/actualización visual de este formulario para reflejar cualquier cambio
         }
-    }
+
+        private void MovieUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
+    } 
 }
