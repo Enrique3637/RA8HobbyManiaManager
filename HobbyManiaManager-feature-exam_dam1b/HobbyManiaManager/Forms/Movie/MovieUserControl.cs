@@ -6,12 +6,14 @@ using System.Windows.Forms;
 using HobbyManiaManager.Forms;
 using HobbyManiaManager.IMDb;
 using HobbyManiaManager.Models;
+using HobbyManiaManager.TicketForm;
 
 namespace HobbyManiaManager
 {
     public partial class MovieUserControl : UserControl
     {
         //Aqui estan las clases que necesitamos para realizar los cambios
+        private RentalService service;
         private CultureInfo cultureInfo;
         private Movie Movie;
         private RentalService _service;
@@ -88,11 +90,31 @@ namespace HobbyManiaManager
 
         private void buttonStartEndRent_Click(object sender, EventArgs e)
         {
-            var rentalForm = new RentalForm(Movie, this);
-            rentalForm.ShowDialog();
-            _refreshAction?.Invoke(); // Si se ha proporcionado una acción de refresco (_refreshAction), la invoca tras cerrar el diálogo
-            this.Refresh();// Fuerza el redibujo/actualización visual de este formulario para reflejar cualquier cambio
+            if (buttonStartEndRent.Text == "End Rent")
+            {
+                var endDate = DateTime.Now;
+
+                var rental = _service.GetMovieRental(Movie.Id);
+                var customer = _customersRepository.GetById(rental.CustomerId);
+
+                _service.FinishRental(customer, Movie, null, endDate);
+
+                var ticketForm = new TicketMovieForm(customer, rental, Movie, endDate);
+                ticketForm.ShowDialog();
+
+                _refreshAction?.Invoke();
+                this.Refresh(); // Fuerza el redibujo
+            }
+            else if (buttonStartEndRent.Text == "Start Rent")
+            {
+                var rentalForm = new RentalForm(Movie, this);
+                rentalForm.ShowDialog();
+
+                _refreshAction?.Invoke();
+                this.Refresh(); // También refresca después de comenzar un alquiler
+            }
         }
+
 
         private void MovieUserControl_Load(object sender, EventArgs e)
         {

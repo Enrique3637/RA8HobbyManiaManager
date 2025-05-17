@@ -76,6 +76,12 @@
     <Compile Include="IMDb\IMDbForm.Designer.cs">
       <DependentUpon>IMDbForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TicketForm\TicketMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketForm\TicketMovieForm.Designer.cs">
+      <DependentUpon>TicketMovieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DateTimeUtils.cs" />
     <Compile Include="Forms\Movie\CatalogForm.cs">
       <SubType>Form</SubType>
@@ -164,6 +170,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TicketForm\TicketMovieForm.resx">
+      <DependentUpon>TicketMovieForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
