@@ -39,6 +39,7 @@
             this.circularProgressBarVotes = new CircularProgressBar.CircularProgressBar();
             this.labelVotesCount = new System.Windows.Forms.Label();
             this.btnImdb = new System.Windows.Forms.Button();
+            this.labelGeneros = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvailable)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             // labelOverview
             // 
             this.labelOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOverview.Location = new System.Drawing.Point(303, 83);
+            this.labelOverview.Location = new System.Drawing.Point(302, 104);
             this.labelOverview.MaximumSize = new System.Drawing.Size(600, 0);
             this.labelOverview.MinimumSize = new System.Drawing.Size(600, 18);
             this.labelOverview.Name = "labelOverview";
@@ -132,7 +133,7 @@
             this.circularProgressBarVotes.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.circularProgressBarVotes.InnerMargin = 2;
             this.circularProgressBarVotes.InnerWidth = -1;
-            this.circularProgressBarVotes.Location = new System.Drawing.Point(217, 83);
+            this.circularProgressBarVotes.Location = new System.Drawing.Point(216, 104);
             this.circularProgressBarVotes.MarqueeAnimationSpeed = 2000;
             this.circularProgressBarVotes.Name = "circularProgressBarVotes";
             this.circularProgressBarVotes.OuterColor = System.Drawing.Color.Gray;
@@ -157,7 +158,7 @@
             // labelVotesCount
             // 
             this.labelVotesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVotesCount.Location = new System.Drawing.Point(214, 166);
+            this.labelVotesCount.Location = new System.Drawing.Point(213, 187);
             this.labelVotesCount.Name = "labelVotesCount";
             this.labelVotesCount.Size = new System.Drawing.Size(80, 23);
             this.labelVotesCount.TabIndex = 10;
@@ -179,10 +180,20 @@
             this.btnImdb.UseVisualStyleBackColor = false;
             this.btnImdb.Click += new System.EventHandler(this.btnImdb_Click);
             // 
+            // labelGeneros
+            // 
+            this.labelGeneros.AutoSize = true;
+            this.labelGeneros.Location = new System.Drawing.Point(228, 62);
+            this.labelGeneros.Name = "labelGeneros";
+            this.labelGeneros.Size = new System.Drawing.Size(47, 13);
+            this.labelGeneros.TabIndex = 12;
+            this.labelGeneros.Text = "Generos";
+            // 
             // MovieUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelGeneros);
             this.Controls.Add(this.btnImdb);
             this.Controls.Add(this.labelVotesCount);
             this.Controls.Add(this.circularProgressBarVotes);
@@ -216,5 +227,6 @@
         private CircularProgressBar.CircularProgressBar circularProgressBarVotes;
         private System.Windows.Forms.Label labelVotesCount;
         private System.Windows.Forms.Button btnImdb;
+        private System.Windows.Forms.Label labelGeneros;
     }
 }
