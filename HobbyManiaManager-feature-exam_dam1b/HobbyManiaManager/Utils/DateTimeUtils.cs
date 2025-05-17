@@ -27,5 +27,6 @@ namespace HobbyManiaManager.Utils
         {
             return (endDate - startDate).Duration().TotalHours;
         }
+
     }
 }
